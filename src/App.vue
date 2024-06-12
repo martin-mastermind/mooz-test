@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import BaseResultInfo from "./components/BaseResultInfo/BaseResultInfo.vue";
+import BaseLoader from "./components/BaseLoader/BaseLoader.vue";
 </script>
 
 <template>
   <main>
-    <BaseResultInfo query="test" :results="20" />
+    <BaseLoader />
   </main>
 </template>
 
