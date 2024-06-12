@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import BaseProfile from "./components/BaseProfile/BaseProfile.vue";
+import BaseResultInfo from "./components/BaseResultInfo/BaseResultInfo.vue";
 </script>
 
 <template>
   <main>
-    <BaseProfile />
+    <BaseResultInfo query="test" :results="20" />
   </main>
 </template>
 
