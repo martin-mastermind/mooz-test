@@ -34,7 +34,7 @@ const handleLogout = () => {
         <span class="base-profile__content-name">Alexander Borisenko</span>
         <img
           :class="['base-profile__content-arrow', arrowClass]"
-          src="/arrow-down.svg"
+          src="/arrow.svg"
           alt="arrow-down"
           @click="handleMenuOpen"
         />
@@ -82,6 +82,14 @@ const handleLogout = () => {
     &-arrow {
       cursor: pointer;
       transition: transform 0.25s ease-in-out;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      &:active {
+        transform: scale(1);
+      }
 
       &--open {
         transform: rotate(180deg);
