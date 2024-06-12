@@ -8,7 +8,7 @@ export const useMovieFetch = (query: Ref<string>, page: Ref<number>) => {
 
   const searchQuery = ref("");
 
-  const changedQuery = ref(false);
+  const queryLoaded = ref(false);
   const loading = ref(false);
 
   const movies = ref<BaseMovieCardProps[]>([]);
@@ -43,6 +43,7 @@ export const useMovieFetch = (query: Ref<string>, page: Ref<number>) => {
       total.value = 0;
     } finally {
       loading.value = false;
+      queryLoaded.value = true;
     }
   };
 
@@ -56,18 +57,20 @@ export const useMovieFetch = (query: Ref<string>, page: Ref<number>) => {
     }, 500);
   });
 
-  watch([searchQuery, page], async ([newQuery], [oldQuery]) => {
-    changedQuery.value = newQuery !== oldQuery;
+  watch(searchQuery, () => {
+    movies.value = [];
+    total.value = 0;
+    queryLoaded.value = false;
 
-    if (changedQuery.value) {
-      movies.value = [];
-      total.value = 0;
+    if (page.value !== 1) {
+      page.value = 1;
+      return;
     }
 
-    if (!newQuery) return;
-
-    await fetchMovies();
+    fetchMovies();
   });
 
-  return { changedQuery, searchQuery, loading, movies, total };
+  watch(page, fetchMovies);
+
+  return { queryLoaded, searchQuery, loading, movies, total };
 };

@@ -15,17 +15,19 @@ const { query } = toRefs(props);
 
 const page = ref(1);
 
-const { changedQuery, searchQuery, loading, movies, total } = useMovieFetch(
+const { queryLoaded, searchQuery, loading, movies, total } = useMovieFetch(
   query,
   page
 );
-
-console.log(changedQuery);
 </script>
 
 <template>
   <section class="ui-content">
-    <BaseResultInfo v-if="searchQuery" :query="searchQuery" :results="total" />
+    <BaseResultInfo
+      v-if="searchQuery && queryLoaded"
+      :query="searchQuery"
+      :results="total"
+    />
 
     <Transition name="fade" mode="out-in">
       <BaseLoader v-if="loading" class="ui-content__loader" />
