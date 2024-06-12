@@ -2,6 +2,7 @@
 import { ref } from "vue";
 
 import UiHeader from "./components/UiHeader/UiHeader.vue";
+import UiContent from "./components/UiContent/UiContent.vue";
 
 const query = ref("");
 </script>
@@ -9,6 +10,7 @@ const query = ref("");
 <template>
   <main>
     <UiHeader v-model:query="query" />
+    <UiContent :query="query" />
   </main>
 </template>
 

@@ -42,9 +42,10 @@ const handleImageError = (e: Event) => {
   display: flex;
   flex-direction: column;
   gap: var(--card-indent);
+  width: 300px;
 
   &__poster {
-    width: 300px;
+    width: 100%;
     height: 400px;
     object-fit: contain;
   }

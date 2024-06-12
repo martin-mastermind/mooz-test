@@ -1,7 +1,7 @@
 export interface BaseMovieCardProps {
   title: string;
   poster: string;
-  year: number;
+  year: string;
   imdbId: string;
   type: string;
 }

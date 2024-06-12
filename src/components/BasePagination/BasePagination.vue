@@ -3,14 +3,16 @@ import { computed, toRefs } from "vue";
 
 import type { BasePaginationProps } from "./BasePagination.types";
 
+const PER_PAGE_AMOUNT = 10;
+
 const props = defineProps<BasePaginationProps>();
-const { total, perPageAmount } = toRefs(props);
+const { total } = toRefs(props);
 
 const currentPage = defineModel("currentPage", {
   default: 1,
 });
 
-const pages = computed(() => Math.ceil(total.value / perPageAmount.value));
+const pages = computed(() => Math.ceil(total.value / PER_PAGE_AMOUNT));
 
 const prevArrowClass = computed(() => ({
   "base-pagination__prev--disabled": currentPage.value === 1,
@@ -47,14 +49,16 @@ const handleNextClick = () => {
       :class="['base-pagination__prev', prevArrowClass]"
       @click="handlePrevClick"
     />
-    <span
-      v-for="page in pages"
-      :class="['base-pagination__page', pageClass(page)]"
-      :key="page"
-      @click="handlePageClick(page)"
-    >
-      {{ page }}
-    </span>
+    <div class="base-pagination__list">
+      <span
+        v-for="page in pages"
+        :class="['base-pagination__page', pageClass(page)]"
+        :key="page"
+        @click="handlePageClick(page)"
+      >
+        {{ page }}
+      </span>
+    </div>
     <img
       src="/arrow.svg"
       alt="Next page"
@@ -101,6 +105,17 @@ const handleNextClick = () => {
 
   &__next {
     rotate: -90deg;
+  }
+
+  &__list {
+    display: flex;
+    gap: 1rem;
+    max-width: 600px;
+    overflow-x: auto;
+
+    @media (max-width: 768px) {
+      max-width: 220px;
+    }
   }
 
   &__page {
