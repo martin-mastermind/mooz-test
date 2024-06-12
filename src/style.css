@@ -5,7 +5,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
   color: var(--primary-color);
   background-color: #ffffff;
 
@@ -18,9 +17,14 @@
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
+  width: 100%;
   min-height: 100vh;
+  overflow: hidden;
+}
+
+#app {
+  width: 100%;
 }
 
 button {
@@ -29,13 +33,7 @@ button {
   padding: 0.25rem 0.5rem;
   font-size: 0.9rem;
   font-weight: 700;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  cursor: pointer;
 }
 
 .fade-enter-active,

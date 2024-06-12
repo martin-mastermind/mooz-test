@@ -1,19 +1,21 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import BasePagination from "./components/BasePagination/BasePagination.vue";
+import UiHeader from "./components/UiHeader/UiHeader.vue";
 
-const currentPage = ref(1);
+const query = ref("");
 </script>
 
 <template>
   <main>
-    <BasePagination
-      :total="203"
-      :perPageAmount="8"
-      v-model:current-page="currentPage"
-    />
+    <UiHeader v-model:query="query" />
   </main>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+</style>

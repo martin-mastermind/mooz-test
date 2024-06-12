@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 
-const isLoggedIn = ref(false);
+const isLoggedIn = ref(true);
 const isMenuOpen = ref(false);
 
 const arrowClass = computed(() => ({
