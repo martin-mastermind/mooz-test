@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
-
-import BaseSearch from "./components/BaseSearch/BaseSearch.vue";
-
-const query = ref("");
+import BaseProfile from "./components/BaseProfile/BaseProfile.vue";
 </script>
 
 <template>
   <main>
-    <BaseSearch v-model="query" />
+    <BaseProfile />
   </main>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss"></style>
