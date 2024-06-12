@@ -44,7 +44,7 @@ const handleNextClick = () => {
 <template>
   <div class="base-pagination">
     <img
-      src="/arrow.svg"
+      src="/assets/arrow.svg"
       alt="Previous page"
       :class="['base-pagination__prev', prevArrowClass]"
       @click="handlePrevClick"
@@ -60,7 +60,7 @@ const handleNextClick = () => {
       </span>
     </div>
     <img
-      src="/arrow.svg"
+      src="/assets/arrow.svg"
       alt="Next page"
       :class="['base-pagination__next', nextArrowClass]"
       @click="handleNextClick"

@@ -28,13 +28,13 @@ const handleLogout = () => {
       <div v-if="isLoggedIn" class="base-profile__content">
         <img
           class="base-profile__content-avatar"
-          src="/avatar.svg"
+          src="/assets/avatar.svg"
           alt="avatar"
         />
         <span class="base-profile__content-name">Alexander Borisenko</span>
         <img
           :class="['base-profile__content-arrow', arrowClass]"
-          src="/arrow.svg"
+          src="/assets/arrow.svg"
           alt="arrow-down"
           @click="handleMenuOpen"
         />

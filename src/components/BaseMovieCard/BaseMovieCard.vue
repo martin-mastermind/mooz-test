@@ -3,7 +3,7 @@ import { computed, toRefs } from "vue";
 
 import type { BaseMovieCardProps } from "./BaseMovieCard.types";
 
-const POSTER_PLACEHOLDER = "/poster_placeholder.jpg";
+const POSTER_PLACEHOLDER = "/assets/poster_placeholder.jpg";
 
 const props = defineProps<BaseMovieCardProps>();
 const { title, poster, year, imdbId, type } = toRefs(props);
